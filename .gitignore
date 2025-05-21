@@ -167,8 +167,28 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Ruff stuff:
-.ruff_cache/
-
 # PyPI configuration file
 .pypirc
+
+# Mac
+.DS_Store
+
+# custom stuff
+*.key
+bucket_name.txt
+data/
+
+# mise
+mise.local.toml
+
+# local sanbox
+sandbox
+
+# Terraform
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+
+# ruff
+.ruff_cache

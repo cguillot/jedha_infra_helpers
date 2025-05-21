@@ -1,0 +1,44 @@
+[tool.poe.tasks]
+# run with eg `uv run poe fmt`
+# fmt = "ruff format ${PWD}"
+# lint = "ruff check --fix ${PWD}"
+# check = "basedpyright ${PWD}"
+test = "pytest ${PWD}"
+# run all the above
+# all = [ {ref="fmt"}, {ref="lint"}, {ref="check"}, {ref="test"} ]
+
+# echo = "echo ${PWD}"
+
+# "ci:fmt" = "ruff format --check ${PWD}"  # fail if not formatted
+# "ci:lint" = "ruff check ${PWD}"
+
+[project]
+name = "infra-deployment-helpers"
+version = "0.1.0"
+description = "Collection of modules helping to deploy infrastructures (Terraform, HuggingFace)"
+readme = "README.md"
+authors = [
+    { name = "Christophe GUILLOT", email = "cguillot.abo@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "hfdm"
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+hfdm = { workspace = true }
+# cable-cli = { workspace = true }
+# cable-experiments = { workspace = true }
+
+[tool.uv.workspace]
+#hdfm = { path = "hdfm" }
+members = ["libs/*"]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.33.0",
+    "pytest>=8.3.5",
+]
