@@ -197,6 +197,9 @@ class HuggingFaceAccount:
         space_variables = self.__dict_to_space_key_value(environment)
         space_secrets = self.__dict_to_space_key_value(secrets)
 
+        logger.debug("create_docker_space: %s", repo_name)
+        logger.debug("space environment: %s", environment)
+
         repo_url = self.hf_api.create_repo(
             repo_id=self.__repo_id(repo_name),
             repo_type="space",
@@ -252,6 +255,8 @@ class HuggingFaceAccount:
                 self.__prepare_deployment_and_push_to_hf(deployment)
             elif force is True:
                 # re-update env and secrets
+                logger.warning("updating space: %s not implemented", deployment_name)
+
                 # TODO: re-update env and secrets
                 pass
             else:
