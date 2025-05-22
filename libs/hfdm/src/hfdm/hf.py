@@ -132,7 +132,12 @@ class HuggingFaceSpaceDeployment:
         """
         raw_env = self.deployment_data.get("hf-deploy", {}).get("environment", {})
 
-        return self.__compute_variables(raw_env, replacer)
+        computed = self.__compute_variables(raw_env, replacer)
+
+        logger.debug("Raw environment:", raw_env)
+        logger.debug("Computed environment:", computed)
+
+        return computed
 
     def __compute_variables(self, variables, replacer):
         if replacer is None:
