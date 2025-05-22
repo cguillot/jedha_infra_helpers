@@ -134,8 +134,8 @@ class HuggingFaceSpaceDeployment:
 
         computed = self.__compute_variables(raw_env, replacer)
 
-        logger.debug("Raw environment:", raw_env)
-        logger.debug("Computed environment:", computed)
+        logger.debug("Raw environment: %s", raw_env)
+        logger.debug("Computed environment: %s", computed)
 
         return computed
 
